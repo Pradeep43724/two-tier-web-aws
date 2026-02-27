@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Two Tier Notes App</title>
+</head>
+<body>
+    <h2>Save your thoughts</h2>
+
+    <form method="POST">
+        <input type="text" name="note" placeholder="Enter note" required>
+        <button type="submit">Add to database</button>
+    </form>
+
+    <h3>Saved thoughts:</h3>
+    <ul>
+        {% for note in notes %}
+            <li>{{ note[1] }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: db
+      DB_USER: appuser
+      DB_PASSWORD: app123
+      DB_NAME: notesdb
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: notesdb
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: app123
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
