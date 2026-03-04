@@ -4,9 +4,9 @@ pipeline {
     stages {
         stage('Deploy to EC2') {
             steps {
-                sshagent(['username123']) {
+                sshagent(['forec2instance']) {
                     sh '''
-                    ssh -o StrictHostKeyChecking=no ubuntu@13.53.190.141 "
+                    ssh -o StrictHostKeyChecking=no ubuntu@16.171.241.211"
                         cd two-tier-web-aws &&
                         git pull &&
                         docker-compose down &&
