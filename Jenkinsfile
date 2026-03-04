@@ -6,7 +6,7 @@ pipeline {
             steps {
                 sshagent(['forec2instance']) {
                     sh '''
-                    ssh -o StrictHostKeyChecking=no ubuntu@16.171.241.211"
+                    ssh -o StrictHostKeyChecking=no ubuntu@16.171.241.211 "
                         cd two-tier-web-aws &&
                         git pull &&
                         docker-compose down &&
